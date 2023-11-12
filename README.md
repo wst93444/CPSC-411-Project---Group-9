@@ -7,7 +7,7 @@
   Site Wei(sitew@csu.fullerton.edu)  
 
 ## Screenshot for our app:
-![](https://github.com/wst93444/CPSC-411-Project-Group-9/blob/main/Screenshot/account%20ui.png =250x250)
+<img src="https://github.com/wst93444/CPSC-411-Project-Group-9/blob/main/Screenshot/account%20ui.png" width=50% height=50%>
 ![image]()
 ![image]()
 ![image]()
