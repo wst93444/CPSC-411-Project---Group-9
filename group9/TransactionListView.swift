@@ -35,6 +35,7 @@ struct TransactionListView: View {
                         Text("\(transaction.amount, specifier: "%.2f")")
                     }
                 }
+                .onDelete(perform: deleteTransaction)
             }
 //
 //            Section(header: Text("Transactions")) {
