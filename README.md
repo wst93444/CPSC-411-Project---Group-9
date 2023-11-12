@@ -7,7 +7,9 @@
   Site Wei(sitew@csu.fullerton.edu)  
 
 ## Screenshot for our app:
-<img src="https://github.com/wst93444/CPSC-411-Project-Group-9/blob/main/Screenshot/account%20ui.png" width=30% height=30%> <img src="https://github.com/wst93444/CPSC-411-Project-Group-9/blob/main/Screenshot/adding%20account.png" width=30% height=30%> <img src="https://github.com/wst93444/CPSC-411-Project-Group-9/blob/main/Screenshot/delete%20account.png" width=30% height=30%>
+<img src="https://github.com/wst93444/CPSC-411-Project-Group-9/blob/main/Screenshot/account%20ui.png" width=30% height=30% />
+<img src="https://github.com/wst93444/CPSC-411-Project-Group-9/blob/main/Screenshot/adding%20account.png" width=30% height=30% />
+<img src="https://github.com/wst93444/CPSC-411-Project-Group-9/blob/main/Screenshot/delete%20account.png" width=30% height=30%>
 <img src="https://github.com/wst93444/CPSC-411-Project-Group-9/blob/main/Screenshot/transaction%20ui.png" width=30% height=30%>
 <img src="https://github.com/wst93444/CPSC-411-Project-Group-9/blob/main/Screenshot/adding%20transaction.png" width=30% height=30%>
 <img src="https://github.com/wst93444/CPSC-411-Project-Group-9/blob/main/Screenshot/delete-transaction.png" width=30% height=30%>
