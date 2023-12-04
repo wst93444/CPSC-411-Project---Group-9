@@ -16,7 +16,7 @@ struct AccountListView: View {
             VStack {
                 List {
                     ForEach(accountManager.accounts) { account in
-                        NavigationLink(destination: TransactionListView(account: account)) {
+                        NavigationLink(destination: TransactionListView(account: account, accountManager: accountManager)) {
                             Text("\(account.name): $\(account.balance, specifier: "%.2f")")
                         }
                     }
@@ -35,6 +35,7 @@ struct AccountListView: View {
                         if let balance = Double(newAccountBalance) {
                             let newAccount = Account(name: newAccountName, balance: balance, transactions: [])
                             accountManager.accounts.append(newAccount)
+                            accountManager.saveAccounts()
                             newAccountName = ""
                             newAccountBalance = ""
                         }
@@ -50,6 +51,7 @@ struct AccountListView: View {
     // delete account method
     private func deleteAccount(at offsets: IndexSet) {
             accountManager.accounts.remove(atOffsets: offsets)
+            accountManager.saveAccounts()
     }
 }
 
@@ -58,12 +60,12 @@ class AccountManager: ObservableObject {
 
     init() {
         // Here you can load or initialize your account data.
+        loadAccounts() // Load existing accounts
         // For example, add some sample account data.
-        let sampleTransactions = [Transaction(date: Date(), amount: -8.99, description: "Netflix Subscription"),
-                                  Transaction(date: Date(), amount: -3.50, description: "Coffee")]
-        let sampleAccount = Account(name: "Checking", balance: 1200.00, transactions: sampleTransactions)
-        
-        accounts.append(sampleAccount)
+//        let sampleTransactions = [Transaction(date: Date(), amount: -8.99, description: "Netflix Subscription"),
+//                                  Transaction(date: Date(), amount: -3.50, description: "Coffee")]
+//        let sampleAccount = Account(name: "Checking", balance: 1200.00, transactions: sampleTransactions)
+//        accounts.append(sampleAccount)
     }
 }
 

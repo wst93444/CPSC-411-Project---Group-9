@@ -8,6 +8,7 @@ import SwiftUI
 
 struct TransactionListView: View {
     @ObservedObject var account: Account
+    var accountManager: AccountManager // Adding this line to receive AccountManager
     @State private var newTransactionDescription = ""
     @State private var newTransactionAmount = ""
 
@@ -32,18 +33,13 @@ struct TransactionListView: View {
                     HStack {
                         Text(transaction.description)
                         Spacer()
-                        Text("\(transaction.amount, specifier: "%.2f")")
+                        Text(transaction.category.capitalized).foregroundColor(transaction.amount >= 0 ? .green : .red)
+                        Spacer()
+                        Text("$\(transaction.amount, specifier: "%.2f")")
                     }
                 }
                 .onDelete(perform: deleteTransaction)
             }
-//
-//            Section(header: Text("Transactions")) {
-//                ForEach(account.transactions) { transaction in
-//                    Text("\(transaction.description): $\(transaction.amount, specifier: "%.2f")")
-//                }
-//                .onDelete(perform: deleteTransaction)
-//            }
         }
         .listStyle(GroupedListStyle())
         //.navigationTitle(Text("Transactions for \(account.name)").font(.system(size: 14)))
@@ -56,20 +52,23 @@ struct TransactionListView: View {
         if let amount = Double(newTransactionAmount), !newTransactionDescription.isEmpty {
             let newTransaction = Transaction(date: Date(), amount: amount, description: newTransactionDescription)
             account.transactions.append(newTransaction)
+            accountManager.saveAccounts()
             newTransactionDescription = ""
             newTransactionAmount = ""
         }
     }
     
-    // delete transaction method
+    // delete transaction method and store data
     private func deleteTransaction(at offsets: IndexSet) {
         account.transactions.remove(atOffsets: offsets)
+        accountManager.saveAccounts()
     }
 }
 
 
 struct TransactionListView_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionListView(account: Account(name: "Sample", balance: 0.0, transactions: []))
+        // Assuming AccountManager is available here or provided through environment
+        TransactionListView(account: Account(name: "Sample", balance: 0.0, transactions: []), accountManager: AccountManager())
     }
 }
